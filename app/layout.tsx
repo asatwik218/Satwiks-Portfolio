@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="m-0 p-0 box-border w-screen text-white">
+      <body className="m-0 p-0 box-border w-screen text-white  h-screen">
         <Nav/>
       {children}
       </body>

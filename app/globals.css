@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  background-image: url('/images/bgImage3.png');
+body {
+  background-image: url("/images/bgImage3.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  overflow: hidden;
 }
