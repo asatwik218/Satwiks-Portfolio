@@ -11,6 +11,7 @@ import { MdVerified } from "react-icons/md";
 import { FcElectronics } from "react-icons/fc";
 import Bio from "./Bio";
 import DropdownHeader from "./DropdownHeader";
+import { Separator } from "@/components/ui/separator";
 
 type HeaderProps = {};
 
@@ -50,7 +51,9 @@ const Header: React.FC<HeaderProps> = () => {
               >
                 <FaLinkedinIn className="h-4 w-4 text-white" />
               </Button>
-              <div className="hidden md:flex"><DropdownHeader/></div>
+              <div className="hidden md:flex">
+                <DropdownHeader />
+              </div>
             </div>
           </div>
           <div className="mt-4 hidden md:block">
@@ -61,6 +64,7 @@ const Header: React.FC<HeaderProps> = () => {
       <div className="md:hidden">
         <Bio />
       </div>
+      <Separator className="mt-4 mb-0" />
     </>
   );
 };

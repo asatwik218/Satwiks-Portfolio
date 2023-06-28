@@ -2,9 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+}
 body {
   background-image: url("/images/bgImage3.png");
   background-size: cover;
-  background-repeat: no-repeat;
-  overflow: hidden;
+  background-repeat: repeat;
+  overflow-x: hidden;
+}
+
+#like-svg {
+  stroke: white;
+  stroke-width: 3;
+  transition: all ;
+  cursor: pointer;
+}
+#like-svg:hover {
+  stroke: rgb(243 244 246 / 0.8);
+}
+
+#like-svg.active {
+  stroke: red;
+  fill: red;
+  animation: pulse 0.4s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
