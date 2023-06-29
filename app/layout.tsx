@@ -1,6 +1,7 @@
 import Nav from '@/components/Nav';
 import './globals.css'
 import {Poppins, Inter} from 'next/font/google'
+import { Toaster } from '@/components/ui/toaster';
 
 const poppins = Poppins({subsets:['latin'],weight:['100','400','700']})
 const inter = Inter({subsets:['latin'], variable:'--font-inter'})
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={`m-0 p-0 box-border w-screen text-white `}>
         <Nav/>
       {children}
+      <Toaster/>
       </body>
     </html>
   )
