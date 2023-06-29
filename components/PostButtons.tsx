@@ -70,7 +70,7 @@ const PostButtons: React.FC<PostButtonsProps> = ({
   }, []);
 
   return (
-    <div className="post-buttons flex items-center my-1 ml-1 gap-4 ">
+    <div className="post-buttons flex items-center my-1 ml-1 gap-x-3 ">
       <div onClick={handleLike}>
         <LikeIconSvg />
       </div>
@@ -78,8 +78,8 @@ const PostButtons: React.FC<PostButtonsProps> = ({
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>
-            <Link href="#">
-              <AiOutlineGithub className="w-7 h-7   hover:text-gray-100/80" />
+            <Link target="_blank" href={project.githubURL}>
+              <AiOutlineGithub className="w-6 h-6   hover:text-gray-100/80" />
             </Link>
           </TooltipTrigger>
           <TooltipContent>
@@ -91,9 +91,11 @@ const PostButtons: React.FC<PostButtonsProps> = ({
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>
-            <Link href="#">
-              <FaPaperPlane className="w-5 h-5   hover:text-gray-100/80" />
-            </Link>
+            {project.deploymentURL && (
+              <Link target="_blank" href={project.deploymentURL}>
+                <FaPaperPlane className="w-4 h-4   hover:text-gray-100/80" />
+              </Link>
+            )}
           </TooltipTrigger>
           <TooltipContent>
             <p>Visit!</p>
@@ -111,7 +113,7 @@ const LikeIconSvg = () => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 47.5 47.5"
       id="like-svg"
-      className="w-6 h-6"
+      className="w-5 h-5"
     >
       <defs>
         <clipPath id="a">

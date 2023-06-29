@@ -1,9 +1,10 @@
 import Nav from '@/components/Nav';
 import './globals.css'
-import { Inter } from 'next/font/google'
-import Image from "next/image";
+import {Poppins, Inter} from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({subsets:['latin'],weight:['100','400','700']})
+const inter = Inter({subsets:['latin'], variable:'--font-inter'})
+
 
 export const metadata = {
   title: 'Satwik Agarwal',
@@ -16,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="m-0 p-0 box-border w-screen text-white">
+    <html lang="en" className={`${inter.variable} font-sans`}>
+      <body className={`m-0 p-0 box-border w-screen text-white `}>
         <Nav/>
       {children}
       </body>

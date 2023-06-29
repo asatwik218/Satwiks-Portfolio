@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FcElectronics } from "react-icons/fc";
 
@@ -6,7 +7,7 @@ type BioProps = {};
 const Bio: React.FC<BioProps> = () => {
   return (
     <div className="bio-text ml-3 flex flex-col">
-      <p className="text-md font-normal pb-1">
+      <p className=" font-normal pb-1">
         Bringing Ideas to Life with Code! ✨
       </p>
       <p className="text-sm text-gray-300">
@@ -42,7 +43,11 @@ const Bio: React.FC<BioProps> = () => {
           #ThrustMIT
         </span>{" "}
       </p>
-      <p className="hover:text-sky-500 cursor-pointer font-bold text-sm w-20">more...</p>
+      <Link href="#about">
+        <p className="hover:text-sky-500 cursor-pointer font-bold text-sm w-20">
+          more...
+        </p>
+      </Link>
     </div>
   );
 };

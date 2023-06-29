@@ -12,6 +12,7 @@ import { FcElectronics } from "react-icons/fc";
 import Bio from "./Bio";
 import DropdownHeader from "./DropdownHeader";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 type HeaderProps = {};
 
@@ -38,19 +39,27 @@ const Header: React.FC<HeaderProps> = () => {
             </div>
             {/* buttons div */}
             <div className="flex  items-center pt-5 md:pt-0 ">
-              <Button className="ml-2 mr-2">
-                <AiFillGithub className="mr-1 h-5 w-5" /> Github
-              </Button>
-              <Button variant="default" className="">
-                Message
-              </Button>
-              <Button
-                variant="default"
-                className="ml-2 bg-[#0077b5] hover:bg-[#0077b5]/90"
-                size="icon"
-              >
-                <FaLinkedinIn className="h-4 w-4 text-white" />
-              </Button>
+              <Link href="https://github.com/asatwik218" target="_blank">
+                <Button className="ml-2 mr-2">
+                  <AiFillGithub className="mr-1 h-5 w-5" /> Github
+                </Button>
+              </Link>
+              <Link href="#" target="_blank">
+                <Button variant="default" className="">
+                  Message
+                </Button>
+              </Link>
+
+              <Link href="https://www.linkedin.com/in/satwik-agarwal-a7b14323a/" target="_blank">
+                <Button
+                  variant="default"
+                  className="ml-2 bg-[#0077b5] hover:bg-[#0077b5]/90"
+                  size="icon"
+                >
+                  <FaLinkedinIn className="h-4 w-4 text-white" />
+                </Button>
+              </Link>
+
               <div className="hidden md:flex">
                 <DropdownHeader />
               </div>

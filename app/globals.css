@@ -9,6 +9,7 @@ body {
   background-image: url("/images/bgImage3.png");
   background-size: cover;
   background-repeat: repeat;
+  background-position: fixed;
   overflow-x: hidden;
 }
 
