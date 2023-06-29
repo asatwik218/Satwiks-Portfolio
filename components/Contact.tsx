@@ -53,9 +53,9 @@ const Contact: React.FC<ContactProps> = () => {
       <form
         onSubmit={sendEmail}
         ref={formRef}
-        className="flex flex-col gap-6 mt-8"
+        className="flex flex-col gap-4 mt-8"
       >
-        <div className="flex gap-x-10">
+        <div className="flex  md:flex-row flex-col gap-x-8 gap-y-4">
           <Input
             type="text"
             placeholder="Name"
@@ -74,7 +74,7 @@ const Contact: React.FC<ContactProps> = () => {
         <Textarea
           placeholder="Type your message here."
           name="message"
-          className="shrink-0 "
+          className="shrink-0 h-32 "
           required
         />
         {isLoading ? (

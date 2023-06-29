@@ -6,15 +6,15 @@ type AboutProps = {};
 const About: React.FC<AboutProps> = () => {
   return (
     <div
-      className="flex w-full flex-col text-gray-200 bg-[#0D0B0C]/30 backdrop-blur-sm p-5 text-sm md:text-base gap-y-4"
+      className="flex w-full flex-col text-gray-300 bg-[#0D0B0C]/30 backdrop-blur-sm p-5 text-sm md:text-base gap-y-4 "
       id="about"
     >
-      <h1 className="text-3xl font-bold mt-1">Hello There! 👋</h1>
+      <h1 className="text-3xl font-bold mt-1 text-white ">Hello there! 👋</h1>
       <p className="">
         I'm Satwik. I am a Web Developer, an Embedded Software Developer, a
         Rocketry Enthusiast and currently a Computer Science Undergrad.
       </p>
-      <p>
+      <p className="">
         I am a self taught web developer specialising in ReactJS and NextJS. I
         have been building websites with react for over 2 years now. In addition
         to React.js, I also possess comprehensive knowledge and hands-on

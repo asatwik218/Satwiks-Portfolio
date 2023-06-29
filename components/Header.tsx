@@ -1,18 +1,15 @@
-import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
+import React from "react";
 import {
-  AiFillGithub,
-  AiOutlineInstagram,
-  AiOutlineMail,
+  AiFillGithub
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
-import { FcElectronics } from "react-icons/fc";
 import Bio from "./Bio";
 import DropdownHeader from "./DropdownHeader";
-import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
 
 type HeaderProps = {};
 
@@ -44,7 +41,7 @@ const Header: React.FC<HeaderProps> = () => {
                   <AiFillGithub className="mr-1 h-5 w-5" /> Github
                 </Button>
               </Link>
-              <Link href="#" target="_blank">
+              <Link href="mailto:asatwik218@gmail.com?subject=Lets%20have%20a%20chat" target="_blank">
                 <Button variant="default" className="">
                   Message
                 </Button>

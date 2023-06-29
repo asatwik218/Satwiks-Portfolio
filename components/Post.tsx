@@ -7,6 +7,7 @@ import { BsDot } from "react-icons/bs";
 import PostButtons from "./PostButtons";
 import PostDesc from "./PostDesc";
 import { Separator } from "./ui/separator";
+import Image from "next/image";
 
 type PostProps = {
   project: ProjectData;
@@ -32,11 +33,20 @@ const Post: React.FC<PostProps> = ({ project }) => {
         </div>
       </div>
       {/* post video */}
-      <div className="post-video border w-full border-gray-500/50 mt-1 py-2 bg-[#0D0B0C]">
-        <video className="aspect-video">
-          <source src="/videos/vid1.mov" />
-        </video>
-      </div>
+      {project?.videoURL && (
+        <div className="post-video border w-full border-gray-500/50 mt-1 py-2 bg-[#0D0B0C]">
+          <video className="aspect-video">
+            <source src="/videos/vid1.mov" />
+          </video>
+        </div>
+      )}
+      {/* post image */}
+      {project?.imageURL && (
+        <div className="post-video border w-full border-gray-500/50 mt-1 py-2 bg-[#0D0B0C]">
+          <Image src={project.imageURL} alt="post-image" />
+        </div>
+      )}
+
       {/* post button */}
       <PostButtons
         project={project}

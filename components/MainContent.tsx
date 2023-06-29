@@ -15,7 +15,9 @@ const MainContent: React.FC<MainContentProps> = ({ projects }) => {
       <Tabs defaultValue="projects">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="projects">Projects</TabsTrigger>
-          <TabsTrigger value="about">About</TabsTrigger>
+          <TabsTrigger value="about" id="aboutTrigger">
+            About
+          </TabsTrigger>
           <TabsTrigger value="contact">Contact</TabsTrigger>
         </TabsList>
         <TabsContent value="projects">

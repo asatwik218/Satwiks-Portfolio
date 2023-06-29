@@ -43,8 +43,8 @@ const Bio: React.FC<BioProps> = () => {
           #ThrustMIT
         </span>{" "}
       </p>
-      <Link href="#about">
-        <p className="hover:text-sky-500 cursor-pointer font-bold text-sm w-20">
+      <Link href="/about">
+        <p className="hover:text-sky-500 cursor-pointer font-bold text-sm w-20" >
           more...
         </p>
       </Link>
