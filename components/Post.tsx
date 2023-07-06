@@ -24,7 +24,7 @@ const Post: React.FC<PostProps> = ({ project }) => {
       <div className="post-header--image flex w-full">
         <Avatar className="w-14 h-14">
           <AvatarImage src="/images/avatar3.png" alt="@satwik" />
-          <AvatarFallback>SATWIK</AvatarFallback>
+          <AvatarFallback>SA</AvatarFallback>
         </Avatar>
         <div className="post-header--text flex items-center ">
           <span className="text-sm font-bold">{project.title}</span>
@@ -44,7 +44,8 @@ const Post: React.FC<PostProps> = ({ project }) => {
               ref={vidRef}
               loop
               muted
-              autoPlay={false}
+              preload="none"
+              poster={project.imageURL}
               onMouseLeave={() => {
                 setIsPaused(true);
                 vidRef.current?.pause();
