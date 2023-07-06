@@ -34,6 +34,7 @@ module.exports = {
         sans:['var(--font-inter)'],
         poppins:['var(--font-poppins)'],
         roboto:['var(--font-roboto-mono)'],
+        signature:['var(--font-dawning)'],
       }
     },
   },

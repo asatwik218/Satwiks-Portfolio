@@ -16,7 +16,7 @@ const PostDesc: React.FC<PostDescProps> = ({ project, noOfLikes }) => {
       {showMore ? (
         <>
           <div>
-            <p>
+            <div>
               {project.description}
               <p className="text-sky-200 mt-2">
                 {project.tags.map((tag) => (
@@ -25,7 +25,7 @@ const PostDesc: React.FC<PostDescProps> = ({ project, noOfLikes }) => {
                   </span>
                 ))}
               </p>
-            </p>
+            </div>
             <p
               className="hover:text-gray-400/90 text-gray-400 cursor-pointer text-sm "
               onClick={() => {

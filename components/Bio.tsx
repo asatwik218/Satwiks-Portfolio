@@ -32,7 +32,7 @@ const Bio: React.FC<BioProps> = () => {
         <span className="font-bold px-1 text-white hover:text-sky-500 cursor-pointer">
           #C++
         </span>{" "}
-        <span className="font-bold px-1 text-white hover:text-sky-500 cursor-pointer">
+        <span className="font-bold px-1 text-white  hover:text-sky-500 cursor-pointer">
           #STM32
         </span>{" "}
       </p>
@@ -40,7 +40,9 @@ const Bio: React.FC<BioProps> = () => {
         {" "}
         Budding Rocketeer & Avionics Engineer 🚀 at{" "}
         <span className="font-bold px-1 text-white hover:text-sky-500 cursor-pointer">
+          <Link href="https://www.thrustmit.in/" target="_blank">
           #ThrustMIT
+          </Link>
         </span>{" "}
       </p>
       <Link href="/about">

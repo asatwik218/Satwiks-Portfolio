@@ -18,7 +18,6 @@ export default async function Home() {
         })
       )
     );
-    console.log(projects);
   } catch (error) {
     console.log(error);
   }

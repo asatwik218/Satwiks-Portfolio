@@ -88,20 +88,20 @@ const PostButtons: React.FC<PostButtonsProps> = ({
         </Tooltip>
       </TooltipProvider>
 
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger>
-            {project.deploymentURL && (
+      {project.deploymentURL && (
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
               <Link target="_blank" href={project.deploymentURL}>
                 <FaPaperPlane className="w-4 h-4   hover:text-gray-100/80" />
               </Link>
-            )}
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>Visit!</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Visit!</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      )}
     </div>
   );
 };

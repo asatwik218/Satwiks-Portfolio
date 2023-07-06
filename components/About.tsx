@@ -6,7 +6,7 @@ type AboutProps = {};
 const About: React.FC<AboutProps> = () => {
   return (
     <div
-      className="flex w-full flex-col text-gray-300 bg-[#0D0B0C]/30 backdrop-blur-sm p-5 text-sm md:text-base gap-y-4 "
+      className="flex w-full flex-col text-gray-300/90 tracking-wide bg-[#0D0B0C]/30 backdrop-blur-sm p-5 text-sm md:text-base gap-y-4 "
       id="about"
     >
       <h1 className="text-3xl font-bold mt-1 text-white ">Hello there! 👋</h1>
@@ -73,6 +73,9 @@ const About: React.FC<AboutProps> = () => {
         project in mind or would like to connect, feel free to reach out to me{" "}
         <span>here</span>
       </p>
+      <p className="font-extrabold text-gray-200">Stay awesome!</p>
+      <p className="font-signature text-white text-6xl mt-3">Satwik</p>
+
     </div>
   );
 };
