@@ -22,7 +22,7 @@ const Post: React.FC<PostProps> = ({ project }) => {
       {/* post header */}
       <div className="post-header--image flex w-full">
         <Avatar className="w-14 h-14">
-          <AvatarImage src="/images/avatar3.png" alt="@satwik" />
+          <AvatarImage src="/images/avatar.webp" alt="@satwik" />
           <AvatarFallback>SA</AvatarFallback>
         </Avatar>
         <div className="post-header--text flex items-center ">
@@ -63,6 +63,7 @@ const Post: React.FC<PostProps> = ({ project }) => {
         ) : (
           <img
             src={project.imageURL}
+            // src="/projectContent/portfolio-website.png"
             alt="post-image"
             className="aspect-video  top-0 left-0 w-full h-full "
             loading="lazy"
