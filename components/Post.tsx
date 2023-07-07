@@ -45,7 +45,8 @@ const Post: React.FC<PostProps> = ({ project }) => {
             poster={project.imageURL}
             onMouseLeave={() => {
               if (isPlaying) {
-                vidRef.current?.load();
+                vidRef.current?.pause();
+                vidRef.current!.currentTime = 0;
                 setIsPlaying(false)
                 console.log("paused");
               }
