@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = () => {
       <div className="flex ">
         <div className="avatar-img">
           <Avatar className="md:h-56 md:w-56 h-32 w-32">
-            <AvatarImage src="/images/avatar3.png" alt="@satwik" />
+            <AvatarImage src="/images/avatar.webp" alt="@satwik" />
             <AvatarFallback>SA</AvatarFallback>
           </Avatar>
         </div>
