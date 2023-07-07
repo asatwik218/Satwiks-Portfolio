@@ -8,13 +8,13 @@ import PostButtons from "./PostButtons";
 import PostDesc from "./PostDesc";
 import { Separator } from "./ui/separator";
 
-
 type PostProps = {
   project: ProjectData;
 };
 
 const Post: React.FC<PostProps> = ({ project }) => {
   const [noOfLikes, setNoOfLikes] = useState(project.noOfLikes);
+  const [isPlaying, setIsPlaying] = useState(false);
   const vidRef = useRef<HTMLVideoElement>(null);
 
   return (
@@ -42,17 +42,20 @@ const Post: React.FC<PostProps> = ({ project }) => {
             ref={vidRef}
             loop
             muted
-            preload="none"
             poster={project.imageURL}
             onMouseLeave={() => {
-              vidRef.current?.load();
+              if (isPlaying) {
+                vidRef.current?.load();
+                setIsPlaying(false)
+                console.log("paused");
+              }
               // vidRef.current?.pause();
               // vidRef.current!.currentTime = 0;
-              console.log("paused");
             }}
             onMouseOver={async () => {
-              if (vidRef.current) {
+              if (vidRef.current && !isPlaying) {
                 await vidRef.current?.play();
+                setIsPlaying(true);
                 console.log("playing");
               }
             }}
