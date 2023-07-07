@@ -7,7 +7,7 @@ import { BsDot } from "react-icons/bs";
 import PostButtons from "./PostButtons";
 import PostDesc from "./PostDesc";
 import { Separator } from "./ui/separator";
-import Image from "next/image";
+
 
 type PostProps = {
   project: ProjectData;
@@ -15,7 +15,6 @@ type PostProps = {
 
 const Post: React.FC<PostProps> = ({ project }) => {
   const [noOfLikes, setNoOfLikes] = useState(project.noOfLikes);
-  const [isPaused, setIsPaused] = useState(true);
   const vidRef = useRef<HTMLVideoElement>(null);
 
   return (
@@ -37,52 +36,33 @@ const Post: React.FC<PostProps> = ({ project }) => {
       {/* post video */}
       <div className="post-video border w-full border-gray-500/50 mt-1 py-2 bg-[#0D0B0C] relative">
         {project?.videoURL ? (
-          <>
-            <video
-              className="aspect-video"
-              src={project.videoURL}
-              ref={vidRef}
-              loop
-              muted
-              // preload="none"
-              poster={project.imageURL}
-              onMouseLeave={() => {
-                setIsPaused(true);
-                vidRef.current?.pause();
-                vidRef.current!.currentTime = 0;
-                console.log("paused");
-              }}
-              onMouseOver={async () => {
-                setIsPaused(false);
-                if (vidRef.current) {
-                  await vidRef.current?.play();
-                  console.log("playing");
-                }
-              }}
-            />
-            {/* {isPaused && project?.imageURL && (
-              // post image
-              <img
-                src={project.imageURL}
-                alt="post-image"
-                loading="lazy"
-                className="aspect-video absolute top-0 left-0 w-full h-full "
-                onMouseOver={async () => {
-                  setIsPaused(false);
-                  if (vidRef.current) {
-                    vidRef.current!.currentTime = 0;
-                    await vidRef.current?.play();
-                    console.log("playing");
-                  }
-                }}
-              />
-            )} */}
-          </>
+          <video
+            className="aspect-video object-cover"
+            src={project.videoURL}
+            ref={vidRef}
+            loop
+            muted
+            preload="none"
+            poster={project.imageURL}
+            onMouseLeave={() => {
+              vidRef.current?.load();
+              // vidRef.current?.pause();
+              // vidRef.current!.currentTime = 0;
+              console.log("paused");
+            }}
+            onMouseOver={async () => {
+              if (vidRef.current) {
+                await vidRef.current?.play();
+                console.log("playing");
+              }
+            }}
+          />
         ) : (
           <img
             src={project.imageURL}
             alt="post-image"
             className="aspect-video  top-0 left-0 w-full h-full "
+            loading="lazy"
           />
         )}
       </div>

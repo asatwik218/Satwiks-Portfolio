@@ -18,7 +18,7 @@ const Nav: React.FC = () => {
       <nav className="mx-5  flex justify-between items-center">
         <Link href="/">
           <Image
-            src="/images/logo1.png"
+            src="/images/logo.webp"
             alt="satwik logo"
             width={40}
             height={40}

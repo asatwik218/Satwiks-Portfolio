@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import MainContent from "@/components/MainContent";
 import Footer from "@/components/Footer";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { firestore } from "@/utils/firebase";
 import { ProjectData } from "@/utils/types";
 import safeJsonStringify from "safe-json-stringify";
@@ -9,7 +9,8 @@ import safeJsonStringify from "safe-json-stringify";
 export default async function Home() {
   let projects: ProjectData[] = [];
   try {
-    const projectsDocs = await getDocs(collection(firestore, "projects"));
+    const projQuery = query(collection(firestore, "projects"),orderBy("dateAdded","desc"))
+    const projectsDocs = await getDocs(projQuery);
     projects = projectsDocs.docs.map((doc) =>
       JSON.parse(
         safeJsonStringify({
