@@ -44,19 +44,28 @@ const Post: React.FC<PostProps> = ({ project }) => {
               ref={vidRef}
               loop
               muted
-              preload="none"
+              // preload="none"
               poster={project.imageURL}
               onMouseLeave={() => {
                 setIsPaused(true);
                 vidRef.current?.pause();
+                vidRef.current!.currentTime = 0;
                 console.log("paused");
               }}
+              onMouseOver={async () => {
+                setIsPaused(false);
+                if (vidRef.current) {
+                  await vidRef.current?.play();
+                  console.log("playing");
+                }
+              }}
             />
-            {isPaused && project?.imageURL && (
+            {/* {isPaused && project?.imageURL && (
               // post image
               <img
                 src={project.imageURL}
                 alt="post-image"
+                loading="lazy"
                 className="aspect-video absolute top-0 left-0 w-full h-full "
                 onMouseOver={async () => {
                   setIsPaused(false);
@@ -67,7 +76,7 @@ const Post: React.FC<PostProps> = ({ project }) => {
                   }
                 }}
               />
-            )}
+            )} */}
           </>
         ) : (
           <img
