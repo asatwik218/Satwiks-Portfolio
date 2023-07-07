@@ -40,6 +40,22 @@ const Post: React.FC<PostProps> = ({ project }) => {
             className="aspect-video object-cover"
             src={project.videoURL}
             ref={vidRef}
+            onTouchStart={() => {
+              if (isPlaying) {
+                vidRef.current?.pause();
+                vidRef.current!.currentTime = 0;
+                setIsPlaying(false);
+                console.log("paused");
+              }
+            
+            }}
+            onTouchEnd={async () => {
+              if (vidRef.current && !isPlaying) {
+                await vidRef.current?.play();
+                setIsPlaying(true);
+                console.log("playing");
+              }
+            }}
             loop
             muted
             poster={project.imageURL}
@@ -47,7 +63,7 @@ const Post: React.FC<PostProps> = ({ project }) => {
               if (isPlaying) {
                 vidRef.current?.pause();
                 vidRef.current!.currentTime = 0;
-                setIsPlaying(false)
+                setIsPlaying(false);
                 console.log("paused");
               }
               // vidRef.current?.pause();
