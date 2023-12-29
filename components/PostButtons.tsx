@@ -5,7 +5,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineGithub } from "react-icons/ai";
 
 import Link from "next/link";
@@ -26,12 +26,13 @@ const PostButtons: React.FC<PostButtonsProps> = ({
   setNoOfLikes,
 }) => {
   const [liked, setLiked] = useState(false);
+  const likeRef = useRef<SVGAElement>(null);
 
   const handleLike = async () => {
     if (liked) {
       //unliking
       setLiked(false);
-      document.getElementById("like-svg")?.classList.remove("active");
+      likeRef.current?.classList.remove("active");
       localStorage.removeItem(`${project.id}`);
       setNoOfLikes((prev) => prev - 1);
       try {
@@ -47,7 +48,9 @@ const PostButtons: React.FC<PostButtonsProps> = ({
     } else {
       //liking
       setLiked(true);
-      document.getElementById("like-svg")?.classList.add("active");
+      if(likeRef){
+        likeRef?.current?.classList.add("active");
+      }
       localStorage.setItem(`${project.id}`, "true");
       setNoOfLikes((prev) => prev + 1);
       try {
@@ -65,14 +68,14 @@ const PostButtons: React.FC<PostButtonsProps> = ({
   useEffect(() => {
     if (localStorage.getItem(`${project.id}`) === "true") {
       setLiked(true);
-      document.getElementById("like-svg")?.classList.add("active");
+      likeRef?.current?.classList.add("active");
     }
   }, []);
 
   return (
     <div className="post-buttons flex items-center my-1 ml-1 gap-x-3 ">
       <div onClick={handleLike}>
-        <LikeIconSvg />
+        <LikeIconSvg likeRef={likeRef}/>
       </div>
 
       <TooltipProvider>
@@ -107,11 +110,12 @@ const PostButtons: React.FC<PostButtonsProps> = ({
 };
 export default PostButtons;
 
-const LikeIconSvg = () => {
+const LikeIconSvg = ({likeRef}:any) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 47.5 47.5"
+      ref={likeRef}
       id="like-svg"
       className="w-5 h-5"
     >

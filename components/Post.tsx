@@ -2,7 +2,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProjectData } from "@/utils/types";
 import moment from "moment";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { BsDot } from "react-icons/bs";
 import PostButtons from "./PostButtons";
 import PostDesc from "./PostDesc";
@@ -16,7 +16,13 @@ const Post: React.FC<PostProps> = ({ project }) => {
   const [noOfLikes, setNoOfLikes] = useState(project.noOfLikes);
   const [isPlaying, setIsPlaying] = useState(false);
   const vidRef = useRef<HTMLVideoElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
+  useEffect(()=>{
+    setIsMounted(true)
+  },[])
+  
+  if(!isMounted) return null
   return (
     <div className="my-4 mx-5 sm:mx-10 md:mx-5 flex flex-col justify-center ">
       {/* post header */}
@@ -94,6 +100,8 @@ const Post: React.FC<PostProps> = ({ project }) => {
         noOfLikes={noOfLikes}
         setNoOfLikes={setNoOfLikes}
       />
+
+
       {/* post description */}
       <PostDesc project={project} noOfLikes={noOfLikes} />
       <Separator className="my-3" />
