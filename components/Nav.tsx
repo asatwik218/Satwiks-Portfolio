@@ -11,11 +11,12 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
+import ModeToggle from "./ModeToggle";
 
 const Nav: React.FC = () => {
   return (
-    <div className="sticky bg-[#0D0B0C]/30 backdrop-blur-md top-0 z-10">
-      <nav className="mx-5  flex justify-between items-center">
+    <div className="sticky backdrop-blur-md top-0 z-10 py-3">
+      <nav className="mx-5 flex justify-between items-center">
         <Link href="/">
           <Image
             src="/images/logo.webp"
@@ -56,15 +57,18 @@ const Nav: React.FC = () => {
             </DropdownMenu>
           </div>
         </div> */}
-        <div className="flex justify-between items-center text-gray-300">
-          <div className="hover:bg-gray-800 cursor-pointer md:m-2 rounded text-sm focus:ring-transparent md:text-base py-1 text-light px-2 focus-visible:outline-none focus-visible:border-none focus:outline-none focus:border-none">
+        <div className="flex justify-between items-center ">
+          <div className=" cursor-pointer md:m-1 rounded text-md focus:ring-transparent md:text-base py-1 font-bold px-2 focus-visible:outline-none focus-visible:border-none focus:outline-none focus:border-none">
             <Link href="/resumes/resume.pdf" target="_blank">
               Resume
             </Link>
           </div>
+          <div className="cursor-pointer md:m-1 rounded text-sm focus:ring-transparent md:text-base py-1 text-light px-2 focus-visible:outline-none focus-visible:border-none focus:outline-none focus:border-none">
+            <ModeToggle/> 
+          </div>
         </div>
       </nav>
-      <Separator className="" />
+      {/* <Separator className="" /> */}
     </div>
   );
 };

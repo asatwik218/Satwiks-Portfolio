@@ -24,12 +24,12 @@ const Post: React.FC<PostProps> = ({ project }) => {
   
   if(!isMounted) return null
   return (
-    <div className="my-4 mx-5 sm:mx-10 md:mx-5 flex flex-col justify-center ">
+    <div className="py-4 px-5 sm:px-10 md:px-5 flex flex-col justify-center hover:bg-gray-900 rounded-md">
       {/* post header */}
       <div className="post-header--image flex w-full">
         <Avatar className="w-14 h-14">
-          <AvatarImage src="/images/avatar.webp" alt="@satwik" />
-          <AvatarFallback>SA</AvatarFallback>
+          <AvatarImage src="" alt="@satwik" />
+          <AvatarFallback></AvatarFallback>
         </Avatar>
         <div className="post-header--text flex items-center ">
           <span className="text-sm font-bold">{project.title}</span>
@@ -40,56 +40,18 @@ const Post: React.FC<PostProps> = ({ project }) => {
         </div>
       </div>
       {/* post video */}
-      <div className="post-video border w-full border-gray-500/50 mt-1 py-2 bg-[#0D0B0C] relative">
+      <div className="post-video  rounded-xl border w-full border-gray-500/50 mt-1 py-2 bg-[#0D0B0C] relative">
         {project?.videoURL ? (
-          <video
-            className="aspect-video object-cover"
-            src={project.videoURL}
-            ref={vidRef}
-            onTouchStart={() => {
-              if (isPlaying) {
-                vidRef.current?.pause();
-                vidRef.current!.currentTime = 0;
-                setIsPlaying(false);
-                console.log("paused");
-              }
-            
-            }}
-            onTouchEnd={async () => {
-              if (vidRef.current && !isPlaying) {
-                await vidRef.current?.play();
-                setIsPlaying(true);
-                console.log("playing");
-              }
-            }}
-            loop
-            muted
-            poster={project.imageURL}
-            onMouseLeave={() => {
-              if (isPlaying) {
-                vidRef.current?.pause();
-                vidRef.current!.currentTime = 0;
-                setIsPlaying(false);
-                console.log("paused");
-              }
-              // vidRef.current?.pause();
-              // vidRef.current!.currentTime = 0;
-            }}
-            onMouseOver={async () => {
-              if (vidRef.current && !isPlaying) {
-                await vidRef.current?.play();
-                setIsPlaying(true);
-                console.log("playing");
-              }
-            }}
-          />
+          <video src="">
+
+          </video>
+            // poster={`https://firebasestorage.googleapis.com/v0/b/portfolio-a7d62.appspot.com/o/projectImages%2F${project.imageURL}?alt=media`}
+           
         ) : (
           <img
-            src={project.imageURL}
-            // src="/projectContent/portfolio-website.png"
+            src={`https://firebasestorage.googleapis.com/v0/b/portfolio-a7d62.appspot.com/o/projectImages%2F${project.imageURL}?alt=media&token=447f3679-3e8d-4282-be4d-4ee4a6e05244`}
             alt="post-image"
             className="aspect-video  top-0 left-0 w-full h-full "
-            loading="lazy"
           />
         )}
       </div>
@@ -106,6 +68,8 @@ const Post: React.FC<PostProps> = ({ project }) => {
       <PostDesc project={project} noOfLikes={noOfLikes} />
       <Separator className="my-3" />
     </div>
+
+
   );
 };
 export default Post;

@@ -3,14 +3,9 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
 }
 body {
-  background-image: url("/images/bgImage.webp");
-  background-size: cover;
-  background-repeat: repeat;
-  background-attachment: fixed;
-  overflow-x: hidden;
+ 
 }
 
 #like-svg {

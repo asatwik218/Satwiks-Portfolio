@@ -8,6 +8,7 @@ module.exports = {
     './src/**/*.{ts,tsx}',
 	],
   theme: {
+    
     container: {
       center: true,
       padding: "2rem",
@@ -16,6 +17,14 @@ module.exports = {
       },
     },
     extend: {
+      colors:{
+        'primaryDark' : '#16191d',
+        'textDark':"#f8f9fa",
+      //   secondaryDark:,
+        'primaryLight':'#f8f9fa',
+        'textLight':'#000000',
+      },
+      
       keyframes: {
         "accordion-down": {
           from: { height: 0 },

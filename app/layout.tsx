@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${roboto_mono.variable} ${dawningOfNewDay.variable} font-sans`}>
-      <body className={`m-0 p-0 box-border w-screen text-white `}>
+      <body className={`m-0 p-0 box-border w-screen bg-primaryLight text-textLight`}>
         <Nav/>
       {children}
       <Toaster/>
